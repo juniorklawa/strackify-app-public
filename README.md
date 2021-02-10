@@ -10,6 +10,8 @@
   <p align="center">
     An app that links books to playlists
 </a>
+
+![Alt Text](https://i.imgur.com/CWYlqfD.gif)
     <br />
     <br />
     <a href="https://strackify.com">Google Play</a>
