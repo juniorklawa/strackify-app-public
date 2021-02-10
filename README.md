@@ -20,6 +20,10 @@
   </p>
 </p>
 
+<p align="center">
+ <img src="https://i.imgur.com/CWYlqfD.gif" alt="animated">
+</p>
+
 
 
 <!-- TABLE OF CONTENTS -->
