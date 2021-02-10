@@ -114,4 +114,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Everaldo Junior - [@everelindo](https://twitter.com/everelindo)
+Everaldo Junior - [Linkedin](https://www.linkedin.com/in/everaldojuniorklawa/)
