@@ -1,24 +1,22 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://i.imgur.com/qJfD1cr.png">
+ <a href="https://i.imgur.com/qJfD1cr.png">
     <img src="https://i.imgur.com/qJfD1cr.png" alt="Logo" height="120">
   </a>
 
-  <h2 align="center">Strackify</h2>
+ <h2 align="center">Strackify</h2>
 
   <p align="center">
-    An app that links books to playlists
+     An app that links books to playlists
 </a>
-
-![Alt Text](https://i.imgur.com/CWYlqfD.gif)
     <br />
     <br />
-    <a href="https://strackify.com">Google Play</a>
+     <a href="https://strackify.com">Google Play</a>
     ·
     <a href="https://github.com/juniorklawa/strackify-app-public/issues">Report Bug</a>
     ·
-    <a href="https://github.com/juniorklawa/DoggoBot/strackify-app-public">Request Feature</a>
+    <a href="https://github.com/juniorklawa/DoggoBot/strackify-app-public">Request Feature</a
   </p>
 </p>
 
