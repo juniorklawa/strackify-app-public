@@ -55,12 +55,6 @@ This section should list any major frameworks that you built your project using.
 
 ### Installation
 
- - Fill env_config file with your spotify credentials
- - Add your firebase project google_services.json in android/app folder
- - Add your keystore SHA1 signature and package name in Spotify Developer dashboard
- - Run yarn command
- - Run  the project with yarn android
-
 1. Clone the repo
 ```sh
 git clone https://github.com/juniorklawa/strackify-app-public.git
