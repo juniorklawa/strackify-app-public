@@ -69,7 +69,7 @@ export default {
     by: 'por',
     pages: 'páginas',
     rating: 'Avaliação',
-    descrição: 'Descrição',
+    description: 'Descrição',
   },
 
   track_bar: {
@@ -83,6 +83,7 @@ export default {
   },
 
   add_playlist: {
+    search_book: 'Pesquise pelo título, nome ou autor do livro',
     paste_playlist: 'Cole abaixo o link da playlist.',
     load_playlist: 'Carregar playlist',
     load_another_playlist: 'Carregar outra playlist',
@@ -127,5 +128,33 @@ export default {
       'Cole o link na página seguinte e pronto, é só vc criar sua trilha sonora :)',
     done: 'Concluir',
     next: 'Próximo',
+  },
+  no_internet: {
+    description:
+      'Parece que você está sem internet! que tal verificar sua conexão?',
+  },
+  errors: {
+    no_spotify_playing:
+      'Antes de usar o app você deve ouvir pelo menos 2 segundos de música no Spotify!',
+    valid_email: 'Preencha um e-mail válido',
+    email_required: 'E-mail é obrigatório',
+    password_min: 'A senha deve ter no mínimo 6 caracteres',
+    password_required: 'A senha é obrigatória',
+    no_special: 'Sem caracteres especiais',
+    username_min: 'O username deve ter no mínimo 3 caracteres',
+    username_max: 'Max: 3 caracteres',
+    username_required: 'Username é obrigatório',
+    username_exists: 'Username já existe',
+    password_confirmation: 'As senhas não são iguais',
+    password_confirmation_required: 'Confirmação de senha é obrigatório',
+  },
+  spotify_modal: {
+    welcome: 'Bem-vindo!',
+    explanation: `O Strackify precisa que você se logue com o Spotify para
+    reproduzir as músicas, mas fique tranquilo, quando precisarmos
+    dessa autorização vamos exibir uma imagem parecida com a mostrada
+    a cima.`,
+    good_reading: 'Boa leitura.',
+    understand: 'Entendi',
   },
 };

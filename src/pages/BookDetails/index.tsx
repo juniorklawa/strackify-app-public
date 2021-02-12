@@ -149,7 +149,9 @@ const BookDetailsPage = ({ route }: IRoute) => {
           </InformationContainer>
         </HeaderContainer>
         <BookDescriptionContainer>
-          <DescriptionTitle>Description</DescriptionTitle>
+          <DescriptionTitle>
+            {translate('book_details.description')}
+          </DescriptionTitle>
 
           <DescriptionContent>
             {fetchedBook?.volumeInfo?.description}

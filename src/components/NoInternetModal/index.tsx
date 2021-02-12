@@ -2,6 +2,7 @@ import NetInfo from '@react-native-community/netinfo';
 import React, { useEffect, useState } from 'react';
 import { Modal } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { translate } from '../../locales';
 import {
   Description,
   ModalCenterContainer,
@@ -30,9 +31,7 @@ const NoInternetModal: React.FC = () => {
           <ModalView>
             <Title>Ops!</Title>
             <Icon name="wifi-off" color="#40e0d0" size={80} />
-            <Description>
-              Parece que você está sem internet! que tal verificar sua conexão?
-            </Description>
+            <Description>{translate('no_internet_description')}</Description>
           </ModalView>
         </ModalCenterContainer>
       </Modal>

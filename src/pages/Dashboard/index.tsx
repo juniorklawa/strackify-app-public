@@ -1,6 +1,7 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Alert, Animated, StyleSheet, View, ScrollView } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Alert, Animated, ScrollView, StyleSheet, View } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import CategoryCard from '../../components/CategoryCard';
@@ -8,8 +9,10 @@ import DashboardSkeleton from '../../components/DashboardSkeleton';
 import FeaturedBook from '../../components/FeaturedBook';
 import NoInternetModal from '../../components/NoInternetModal';
 import Section from '../../components/Section';
+import SpotifyAuthModal from '../../components/SpotifyAuthorizationModal';
 import TrackBar from '../../components/TrackBar';
 import { useAuth } from '../../hooks/useAuth';
+import { translate } from '../../locales';
 import { ICategory } from '../../models/ICategory';
 import api from '../../services/api';
 import featuredBooks from '../../utils/featuredBooks';
@@ -26,7 +29,6 @@ import {
   NewPlaylistButton,
   UserNameText,
 } from './styles';
-import { translate } from '../../locales';
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
@@ -34,9 +36,10 @@ const Dashboard: React.FC = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-  const positionAnim = useRef(new Animated.Value(1000)).current;
-  const categoryPositionAnim = useRef(new Animated.Value(1000)).current;
+  const [isSpotifyAuthModalVisible, setIsSpotifyAuthModalVisible] = useState<
+    boolean
+  >(false);
+
   const renderCategoryItem = ({ item }: { item: ICategory }) => {
     return (
       <View>
@@ -52,24 +55,15 @@ const Dashboard: React.FC = () => {
 
         const { data } = await api.get('dashboard');
 
+        const hasShownSpotifyWarning = await AsyncStorage.getItem(
+          '@SPOTIFY_AUTH',
+        );
+
+        if (!hasShownSpotifyWarning) {
+          setIsSpotifyAuthModalVisible(true);
+        }
+
         setCategories(data.categories);
-
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 200,
-          useNativeDriver: true,
-        }).start();
-
-        Animated.timing(positionAnim, {
-          toValue: 0,
-          duration: 1000,
-          useNativeDriver: true,
-        }).start();
-        Animated.timing(categoryPositionAnim, {
-          toValue: 0,
-          duration: 800,
-          useNativeDriver: true,
-        }).start();
       } catch (err) {
         console.error(err);
       } finally {
@@ -78,7 +72,7 @@ const Dashboard: React.FC = () => {
     }
 
     fetchData();
-  }, [categoryPositionAnim, fadeAnim, positionAnim]);
+  }, []);
 
   const handleOnAddPlaylistPress = useCallback(() => {
     if (user) {
@@ -115,7 +109,7 @@ const Dashboard: React.FC = () => {
             <GreetContainer>
               <GreetText>{getGreeting()},</GreetText>
               <UserNameText>
-                {user ? user?.username : `${translate('dashboard.user')}`}
+                @{user ? user?.username : `${translate('dashboard.user')}`}
               </UserNameText>
             </GreetContainer>
           </InfoContainer>
@@ -171,6 +165,10 @@ const Dashboard: React.FC = () => {
       </Animated.ScrollView>
       <TrackBar />
       <NoInternetModal />
+      <SpotifyAuthModal
+        setIsSpotifyAuthModalVisible={setIsSpotifyAuthModalVisible}
+        isSpotifyAuthModalVisible={isSpotifyAuthModalVisible}
+      />
     </>
   );
 };

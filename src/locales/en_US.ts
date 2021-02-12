@@ -18,7 +18,7 @@ export default {
   },
   categories: {
     fantasy: 'Fantasy',
-    action_adventure: 'Action/Adventure',
+    action_adventure: 'Adventure',
     romance: 'Romance',
     historic: 'Historic',
     spirituality: 'Spirituality',
@@ -71,7 +71,7 @@ export default {
     by: 'by',
     pages: 'pages',
     rating: 'Rating',
-    descrição: 'description',
+    description: 'Description',
   },
 
   track_bar: {
@@ -85,6 +85,7 @@ export default {
   },
 
   add_playlist: {
+    search_book: 'Search by book title, name or author',
     paste_playlist: 'Paste the playlist link below.',
     load_playlist: 'Load playlist',
     load_another_playlist: 'Load another playlist',
@@ -130,5 +131,27 @@ export default {
       "Paste the link on the next page and you're done, just create your soundtrack :)",
     done: 'Done',
     next: 'Next',
+  },
+  errors: {
+    no_spotify_playing:
+      'Before using the app you must listen to at least 2 seconds of music on Spotify!',
+    valid_email: 'Please enter a valid email',
+    email_required: 'E-mail address is required',
+    password_min: 'Password must be at least 6 characters',
+    password_required: 'Password is required',
+    no_special: 'No special characters',
+    username_min: 'Username must be at least 3 characters',
+    username_max: 'Max: 3 characters',
+    username_required: 'Username is required',
+    username_exists: 'Username already exists',
+    password_confirmation: 'Passwords do not match',
+    password_confirmation_required: 'Confirm password is required',
+  },
+  spotify_modal: {
+    welcome: 'Welcome!',
+    explanation:
+      'Strackify needs you to log in with Spotify to play the songs, but rest assured, when we need this permission we will display an image similar to the one shown above.',
+    good_reading: 'Good reading.',
+    understand: 'Got it!',
   },
 };
