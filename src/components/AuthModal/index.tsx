@@ -55,24 +55,24 @@ const AuthModal: React.FC<AuthModalProps> = ({
   const loginValidationSchema = yup.object().shape({
     email: yup
       .string()
-      .email('Please enter valid email')
-      .required('Email Address is Required'),
+      .email(translate('errors.valid_email'))
+      .required(translate('errors.email_required')),
     password: yup
       .string()
-      .min(6, ({ min }) => `Password must be at least ${min} characters`)
-      .required('Password is required'),
+      .min(6, translate('errors.password_min'))
+      .required(translate('errors.password_required')),
   });
 
   const signUpValidationSchema = yup.object().shape({
     username: yup
       .string()
-      .matches(/^[a-zA-Z0-9]/, 'No special characters')
-      .min(3, ({ min }) => `Username must be at least ${min} characters`)
-      .max(25, ({ max }) => `Max: ${max} characters`)
-      .required('Nickname is required')
+      .matches(/^[\w&.-]+$/, translate('errors.no_special'))
+      .min(3, translate('errors.username_min'))
+      .max(25, translate('errors.username_max'))
+      .required(translate('errors.username_required'))
       .test(
         'username-backend-validation',
-        'Esse username já existe',
+        translate('errors.username_exists'),
         async (username) => {
           const response = await api.post('/checkUsername', {
             username,
@@ -84,16 +84,16 @@ const AuthModal: React.FC<AuthModalProps> = ({
       ),
     email: yup
       .string()
-      .email('Please enter valid email')
-      .required('Email is required'),
+      .email(translate('errors.valid_email'))
+      .required(translate('errors.email_required')),
     password: yup
       .string()
-      .min(6, ({ min }) => `Password must be at least ${min} characters`)
-      .required('Password is required'),
+      .min(6, translate('errors.password_min'))
+      .required(translate('errors.password_required')),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref('password')], 'Passwords do not match')
-      .required('Confirm password is required'),
+      .oneOf([yup.ref('password')], translate('errors.password_confirmation'))
+      .required(translate('errors.password_confirmation_required')),
   });
 
   useEffect(() => {
@@ -227,7 +227,9 @@ const AuthModal: React.FC<AuthModalProps> = ({
                     </QuestionText>
                     <TouchableOpacity
                       onPress={() => handleIsLogging(resetForm)}>
-                      <QuestionActionText>Criar</QuestionActionText>
+                      <QuestionActionText>
+                        {translate('auth_modal.create')}
+                      </QuestionActionText>
                     </TouchableOpacity>
                   </BottomInfoContainer>
 

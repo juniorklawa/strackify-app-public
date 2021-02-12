@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { Slider } from 'react-native-elements';
 
 export const Container = styled.KeyboardAvoidingView`
   flex: 1;

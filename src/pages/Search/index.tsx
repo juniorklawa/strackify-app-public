@@ -5,10 +5,11 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
 import { FlatGrid } from 'react-native-super-grid';
 import Icon from 'react-native-vector-icons/Ionicons';
-import config from '../../../config';
 import PlaylistCard from '../../components/PlaylistCard';
 import TrackBar from '../../components/TrackBar';
 import { GOOGLE_API_URL } from '../../config/constants';
+import env from '../../env_config';
+import { translate } from '../../locales';
 import { IBook } from '../../models/IBook';
 import { IPlayList } from '../../models/IPlaylist';
 import api from '../../services/api';
@@ -21,7 +22,6 @@ import {
   SearchContainer,
   Title,
 } from './styles';
-import { translate } from '../../locales';
 
 const SearchPage = () => {
   const isFocused = useIsFocused();
@@ -48,7 +48,7 @@ const SearchPage = () => {
   const handleSearch = useCallback(async () => {
     try {
       setIsLoading(true);
-      const url = `${GOOGLE_API_URL}?q=${searchText}&key=${config.GOOD_READS_KEY}&maxResults=40`;
+      const url = `${GOOGLE_API_URL}?q=${searchText}&key=${env.GOOGLE_BOOKS_API}&maxResults=40`;
       const { data } = await axios.get(url);
 
       const bookIdList = data.items?.map((book: IBook) => book.id);

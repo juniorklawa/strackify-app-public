@@ -66,8 +66,6 @@ const CategoryPage = ({ route }: IRoute) => {
         setIsLoading(true);
         const response = await api.get(`playlists/category/${category}`);
         setCategory(response.data);
-
-        console.log('response', response.data);
       } catch (err) {
         console.error(err);
       } finally {

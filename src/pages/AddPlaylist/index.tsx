@@ -1,9 +1,9 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import auth from '@react-native-firebase/auth';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import moment from 'moment';
-import React, { useCallback, useRef, useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -26,10 +26,11 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useCollapsibleHeader } from 'react-navigation-collapsible';
-import config from '../../../config';
+import AddPlaylistTutorial from '../../components/AddPlaylistTutorial';
 import BooksListSkeleton from '../../components/BooksListSkeleton';
 import env from '../../env_config';
 import { useAuth } from '../../hooks/useAuth';
+import { translate } from '../../locales';
 import { CATEGORIES } from '../../models/CategoriesEnum';
 import { IBook } from '../../models/IBook';
 import api from '../../services/api';
@@ -81,8 +82,6 @@ import {
   SelectedCategoryLabel,
   Title,
 } from './styles';
-import { translate } from '../../locales';
-import AddPlaylistTutorial from '../../components/AddPlaylistTutorial';
 
 interface IStepSpotifyURLProps {
   spotifyURL: string;
@@ -159,7 +158,6 @@ export interface IFormattedPlaylist {
   playlistUrl: string | undefined;
   recommendedBooks: any;
   playlistCoverSource: string | undefined;
-  favNumber: number;
 }
 
 const categoryData = [
@@ -172,11 +170,6 @@ const categoryData = [
     name: 'Ação/Aventura',
     category: CATEGORIES.ACTION_ADVENTURE,
     color: '#4CAF50',
-  },
-  {
-    name: 'Ficção Científica',
-    category: CATEGORIES.SCIENCE_FICTION,
-    color: '#2196F3',
   },
   {
     name: 'Romance',
@@ -243,18 +236,20 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
   const [auxData, setAuxData] = useState<ITrack[] | undefined>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingBook, setIsLoadingBook] = useState<boolean>(false);
-  const [isCreatePlaylistLoading, setIsCreatePlaylistLoading] = useState<
-    boolean
-  >(false);
+  const [
+    isCreatePlaylistLoading,
+    setIsCreatePlaylistLoading,
+  ] = useState<boolean>(false);
   const [searchedBook, setSearchedBook] = useState<string>('');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [spotifyURL, setSpotifyURL] = useState('');
   const [searchedBooksList, setSearchedBooksList] = useState([]);
   const [selectedBooksList, setSelectedBooksList] = useState<IBook[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
-  const [isPlaylistTutorialActive, setIsPlaylistTutorialActive] = useState<
-    boolean
-  >(false);
+  const [
+    isPlaylistTutorialActive,
+    setIsPlaylistTutorialActive,
+  ] = useState<boolean>(false);
   const refRBSheet = useRef<RBSheet>(null);
 
   const { height } = useWindowDimensions();
@@ -358,7 +353,6 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
   async function handleSavePlaylist() {
     if (!playlistTitle) {
       handleFlashMessage(translate('add_playlist.title_warning'));
-
       return;
     }
 
@@ -382,7 +376,6 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
       playlistUrl: spotifyURL,
       playlistCoverSource: fetchedPlaylist?.images[0].url,
       recommendedBooks: selectedBooksList,
-      favNumber: 0,
     };
     try {
       setIsCreatePlaylistLoading(true);
@@ -421,7 +414,7 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
     try {
       setIsLoadingBook(true);
 
-      const url = `https://www.googleapis.com/books/v1/volumes?q=${searchedBook}&key=${config.GOOD_READS_KEY}&maxResults=40`;
+      const url = `https://www.googleapis.com/books/v1/volumes?q=${searchedBook}&key=${env.GOOGLE_BOOKS_API}&maxResults=40`;
       const { data } = await axios.get(url);
 
       const filteredBookResult = data.items.filter(
@@ -443,6 +436,7 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
 
       setSearchedBooksList(formattedBookResult);
     } catch (error) {
+      console.log(error);
     } finally {
       setIsLoadingBook(false);
     }
@@ -466,7 +460,6 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
       );
 
       if (!alreadyShowTutorial) {
-        console.log('mostrando');
         setIsPlaylistTutorialActive(true);
         await AsyncStorage.setItem(
           '@ADD_PLAYLIST_TUTORIAL',
@@ -696,7 +689,7 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
 
                 <SearchBookInput
                   placeholderTextColor="#757575"
-                  placeholder="Pesquise pelo título, nome ou autor do livro"
+                  placeholder={translate('add_playlist.search_book')}
                   returnKeyType="search"
                   onSubmitEditing={() => onSubmit()}
                   selectionColor={'gray'}

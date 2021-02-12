@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import moment from 'moment';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Alert, Animated, StyleSheet, View, Text } from 'react-native';
+import { Alert, Animated, StyleSheet, View } from 'react-native';
 import Toast from 'react-native-simple-toast';
 import {
   ApiConfig,
@@ -24,6 +24,7 @@ import { SPOTIFY_API } from '../../config/constants';
 import env from '../../env_config';
 import { IUser, useAuth } from '../../hooks/useAuth';
 import { useTrackBar } from '../../hooks/useTrackBar';
+import { translate } from '../../locales';
 import { IBook } from '../../models/IBook';
 import { IPlayList } from '../../models/IPlaylist';
 import api from '../../services/api';
@@ -57,9 +58,7 @@ import {
   TrackListContainer,
   TracksSectionTitle,
   TrackTitleContainer,
-  PlaylistFavorites,
 } from './styles';
-import { translate } from '../../locales';
 
 interface IRoute {
   route: {
@@ -184,10 +183,7 @@ const PLaylistPage = ({ route }: IRoute) => {
   const playTrackInItem = useCallback(
     async (index: number) => {
       if (item === undefined) {
-        Toast.show(
-          'Antes de usar o app você deve ouvir pelo menos 2 segundos de música no Spotify!',
-          5000,
-        );
+        Toast.show(translate('errors.no_spotify_playing'), 5000);
       }
 
       if (item !== undefined) {
@@ -384,12 +380,6 @@ const PLaylistPage = ({ route }: IRoute) => {
     return routePlaylistId === fetchedPlaylistId;
   }, [currentPlaylist, playlist.playlistUrl]);
 
-  const getFavoritedTimes = useCallback(() => {
-    return playlist.favNumber && playlist.favNumber > 1
-      ? `Favoritado ${playlist.favNumber} vezes`
-      : `Favoritado ${playlist.favNumber} vez`;
-  }, [playlist.favNumber]);
-
   return (
     <>
       <Animated.ScrollView
@@ -447,9 +437,6 @@ const PLaylistPage = ({ route }: IRoute) => {
               />
             </FavoriteButton>
           </PlaylistInfoContainer>
-          {playlist.favNumber && (
-            <PlaylistFavorites>{getFavoritedTimes()}</PlaylistFavorites>
-          )}
 
           <PlaylistLength>{`@${playlist.creator}`}</PlaylistLength>
 
