@@ -236,18 +236,20 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
   const [auxData, setAuxData] = useState<ITrack[] | undefined>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingBook, setIsLoadingBook] = useState<boolean>(false);
-  const [isCreatePlaylistLoading, setIsCreatePlaylistLoading] = useState<
-    boolean
-  >(false);
+  const [
+    isCreatePlaylistLoading,
+    setIsCreatePlaylistLoading,
+  ] = useState<boolean>(false);
   const [searchedBook, setSearchedBook] = useState<string>('');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [spotifyURL, setSpotifyURL] = useState('');
   const [searchedBooksList, setSearchedBooksList] = useState([]);
   const [selectedBooksList, setSelectedBooksList] = useState<IBook[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
-  const [isPlaylistTutorialActive, setIsPlaylistTutorialActive] = useState<
-    boolean
-  >(false);
+  const [
+    isPlaylistTutorialActive,
+    setIsPlaylistTutorialActive,
+  ] = useState<boolean>(false);
   const refRBSheet = useRef<RBSheet>(null);
 
   const { height } = useWindowDimensions();
@@ -415,8 +417,6 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
       const url = `https://www.googleapis.com/books/v1/volumes?q=${searchedBook}&key=${env.GOOGLE_BOOKS_API}&maxResults=40`;
       const { data } = await axios.get(url);
 
-      console.log('data', data);
-
       const filteredBookResult = data.items.filter(
         (book: IFetchedBook) => book.volumeInfo.authors,
       );
@@ -460,7 +460,6 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
       );
 
       if (!alreadyShowTutorial) {
-        console.log('mostrando');
         setIsPlaylistTutorialActive(true);
         await AsyncStorage.setItem(
           '@ADD_PLAYLIST_TUTORIAL',
