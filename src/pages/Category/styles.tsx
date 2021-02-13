@@ -11,6 +11,16 @@ export const Title = styled.Text`
   font-family: OpenSans-Bold;
 `;
 
+export const LoadMoreContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+`;
+
+export const LoadMoreButtonText = styled.Text`
+  font-family: OpenSans-Regular;
+`;
+
 export const CardContainer = styled.TouchableOpacity`
   width: 180px;
   min-height: 150px;
@@ -50,7 +60,6 @@ export const GoBackButton = styled.TouchableOpacity`
 
 export const EmptyListContainer = styled.View`
   flex: 1;
-  height: 100%;
   justify-content: center;
   align-items: center;
 `;

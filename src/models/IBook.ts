@@ -5,5 +5,5 @@ export interface IBook {
   id: string;
   bookId: string;
   title: string;
-  bestPlaylist: string;
+  bestPlaylist: any;
 }

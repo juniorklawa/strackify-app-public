@@ -236,20 +236,18 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
   const [auxData, setAuxData] = useState<ITrack[] | undefined>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isLoadingBook, setIsLoadingBook] = useState<boolean>(false);
-  const [
-    isCreatePlaylistLoading,
-    setIsCreatePlaylistLoading,
-  ] = useState<boolean>(false);
+  const [isCreatePlaylistLoading, setIsCreatePlaylistLoading] = useState<
+    boolean
+  >(false);
   const [searchedBook, setSearchedBook] = useState<string>('');
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [spotifyURL, setSpotifyURL] = useState('');
   const [searchedBooksList, setSearchedBooksList] = useState([]);
   const [selectedBooksList, setSelectedBooksList] = useState<IBook[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<any>(null);
-  const [
-    isPlaylistTutorialActive,
-    setIsPlaylistTutorialActive,
-  ] = useState<boolean>(false);
+  const [isPlaylistTutorialActive, setIsPlaylistTutorialActive] = useState<
+    boolean
+  >(false);
   const refRBSheet = useRef<RBSheet>(null);
 
   const { height } = useWindowDimensions();
@@ -377,6 +375,7 @@ const StepSpotifyURL: React.FC<IStepSpotifyURLProps> = () => {
       playlistCoverSource: fetchedPlaylist?.images[0].url,
       recommendedBooks: selectedBooksList,
     };
+
     try {
       setIsCreatePlaylistLoading(true);
       await api.post('playlists/', playlist);

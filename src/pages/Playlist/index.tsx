@@ -250,7 +250,6 @@ const PLaylistPage = ({ route }: IRoute) => {
       } catch (err) {
         if (err.code === 'EUNSPECIFIED') {
           console.log(err.message);
-
           Toast.show(translate('playlist.duration_error'), 5000);
         }
       } finally {

@@ -17,7 +17,7 @@ export const ItemTitle = styled.Text`
 
 export const ItemImage = styled.Image`
   width: 60%;
-  height: 500px;
+  height: 75%;
 `;
 
 export const ItemDescription = styled.Text`

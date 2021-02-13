@@ -19,6 +19,8 @@ import {
   EmptyListText,
   Input,
   LoadingContainer,
+  LoadMoreButtonText,
+  LoadMoreContainer,
   SearchContainer,
   Title,
 } from './styles';
@@ -27,7 +29,10 @@ const SearchPage = () => {
   const isFocused = useIsFocused();
   const [searchText, setSearchText] = useState('');
   const [searchedList, setSearchedList] = useState<any | []>(null);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -45,6 +50,30 @@ const SearchPage = () => {
     fetchData();
   }, [isFocused]);
 
+  const loadMore = useCallback(async () => {
+    try {
+      setCurrentPage((prevState) => prevState + 1);
+      setIsLoadingMore(true);
+      const url = `${GOOGLE_API_URL}?q=${searchText}&key=${env.GOOGLE_BOOKS_API}&maxResults=40`;
+      const { data } = await axios.get(url);
+      const idToken = await auth()?.currentUser?.getIdToken(true);
+
+      const bookIdList = data.items?.map((book: IBook) => book.id);
+
+      const response = await api.post(
+        'playlists/book',
+        { idList: bookIdList, pageNum: currentPage + 1 },
+        {
+          headers: { AuthToken: idToken },
+        },
+      );
+      setSearchedList((prevState: any) => [...prevState, ...response.data]);
+    } catch (err) {
+    } finally {
+      setIsLoadingMore(false);
+    }
+  }, [currentPage, searchText]);
+
   const handleSearch = useCallback(async () => {
     try {
       setIsLoading(true);
@@ -57,7 +86,7 @@ const SearchPage = () => {
 
       const response = await api.post(
         'playlists/book',
-        { idList: bookIdList },
+        { idList: bookIdList, pageNum: 1 },
         {
           headers: { AuthToken: idToken },
         },
@@ -100,6 +129,23 @@ const SearchPage = () => {
                 style={styles.gridView}
                 spacing={10}
                 renderItem={renderCategoryItem}
+                ListFooterComponent={
+                  <>
+                    {searchedList?.length >= 20 && (
+                      <LoadMoreContainer>
+                        {isLoadingMore ? (
+                          <ActivityIndicator size="large" color="#43cfc3" />
+                        ) : (
+                          <TouchableOpacity onPress={loadMore}>
+                            <LoadMoreButtonText>
+                              {translate('utils.load_more')}
+                            </LoadMoreButtonText>
+                          </TouchableOpacity>
+                        )}
+                      </LoadMoreContainer>
+                    )}
+                  </>
+                }
               />
             ) : (
               <EmptyListContainer>
