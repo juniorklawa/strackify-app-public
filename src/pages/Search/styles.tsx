@@ -19,6 +19,16 @@ export const EmptyListText = styled.Text`
   font-family: OpenSans-Regular;
 `;
 
+export const LoadMoreContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+`;
+
+export const LoadMoreButtonText = styled.Text`
+  font-family: OpenSans-Regular;
+`;
+
 export const SearchContainer = styled.View`
   flex-direction: row;
   background-color: #f9fafe;

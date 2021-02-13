@@ -38,7 +38,7 @@ const FeaturedBook: React.FC<IFeaturedBookProps> = ({ book }) => {
       }).start();
       setTimeout(() => {
         navigation.navigate('PlaylistPage', {
-          playlist: book.bestPlaylist,
+          playlist: book.bestPlaylist._doc,
         });
       }, 50);
     }, 80);

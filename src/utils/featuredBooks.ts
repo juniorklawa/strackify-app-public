@@ -7,20 +7,20 @@ export default [
     author: 'J.K. Rowling',
     bestPlaylist: {
       __v: 0,
-      _id: '60073ce93eb91f00213699e5',
+      _id: '60247351316269700c586b7b',
       category: 'fantasy',
       creator: 'juniorklawa',
       creatorId: '7rE0ebFRjeQUrXA6jF9ivZJlTAL2',
-      description: 'Playlists for reading Harry Potter from 1 to 7',
-      name: 'Harry Potter 1-7',
-      owner: 'Jonathan Plotner',
+      description: 'Soundtrack for a magical reading',
+      name: 'Magical Reading',
+      owner: '51 Reasons',
       playlistCoverSource:
-        'https://mosaic.scdn.co/640/ab67616d0000b27313f982aa5c43146c3d2c1964ab67616d0000b273585f19adb14e7c92d9ec1b41ab67616d0000b273a8ef11af00fcd7db4e65cceaab67616d0000b273bb71e7f0768b0b71d93adb8e',
+        'https://i.scdn.co/image/ab67706c0000bebb86d752fbce97bcac726a0f55',
       playlistUrl:
-        'https://open.spotify.com/playlist/1hCluTqfdwQbTvCNt8fhJF?si=dQeL1a9DT4OHLK_sqZVkSw',
+        'https://open.spotify.com/playlist/5gRoFMk5y7UcXGfgOgJw0p?si=z-j_oRQSROyo-2oDNLrA1A&utm_source=copy-link',
       recommendedBooks: [
         {
-          _id: '60073ce93eb91f00213699e6',
+          _id: '60247351316269700c586b7c',
           author: 'J.K. Rowling',
           bookCoverUrl:
             'http://books.google.com/books/content?id=GjgQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
@@ -28,31 +28,7 @@ export default [
           title: 'Harry Potter e a Pedra Filosofal',
         },
         {
-          _id: '60073ce93eb91f00213699e7',
-          author: 'J.K. Rowling',
-          bookCoverUrl:
-            'http://books.google.com/books/content?id=hjcQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'hjcQCwAAQBAJ',
-          title: 'Harry Potter e a Câmara Secreta',
-        },
-        {
-          _id: '60073ce93eb91f00213699e8',
-          author: 'J.K. Rowling',
-          bookCoverUrl:
-            'http://books.google.com/books/content?id=qDYQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'qDYQCwAAQBAJ',
-          title: 'Harry Potter e o prisioneiro de Azkaban',
-        },
-        {
-          _id: '60073ce93eb91f00213699e9',
-          author: 'J.K. Rowling',
-          bookCoverUrl:
-            'http://books.google.com/books/content?id=ZDgQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'ZDgQCwAAQBAJ',
-          title: 'Harry Potter e o Cálice de Fogo',
-        },
-        {
-          _id: '60073ce93eb91f00213699ea',
+          _id: '60247351316269700c586b7d',
           author: 'J.K. Rowling',
           bookCoverUrl:
             'http://books.google.com/books/content?id=9TcQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
@@ -60,146 +36,187 @@ export default [
           title: 'Harry Potter e a Ordem da Fênix',
         },
         {
-          _id: '60073ce93eb91f00213699eb',
+          _id: '60247351316269700c586b7e',
           author: 'J.K. Rowling',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=yjUQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'yjUQCwAAQBAJ',
-          title: 'Harry Potter e o enigma do Príncipe',
+            'http://books.google.com/books/content?id=qDYQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'qDYQCwAAQBAJ',
+          title: 'Harry Potter e o prisioneiro de Azkaban',
         },
         {
-          _id: '60073ce93eb91f00213699ec',
+          _id: '60247351316269700c586b7f',
+          author: 'J.K. Rowling',
+          bookCoverUrl:
+            'http://books.google.com/books/content?id=ZDgQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'ZDgQCwAAQBAJ',
+          title: 'Harry Potter e o Cálice de Fogo',
+        },
+        {
+          _id: '60247351316269700c586b80',
+          author: 'J.K. Rowling',
+          bookCoverUrl:
+            'http://books.google.com/books/content?id=WzUQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+          bookId: 'WzUQCwAAQBAJ',
+          title: 'Harry Potter e o Príncipe Misterioso',
+        },
+        {
+          _id: '60247351316269700c586b81',
           author: 'J.K. Rowling',
           bookCoverUrl:
             'http://books.google.com/books/content?id=-DgQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
           bookId: '-DgQCwAAQBAJ',
           title: 'Harry Potter e as Relíquias da Morte',
         },
+        {
+          _id: '60247351316269700c586b82',
+          author: 'J.K. Rowling',
+          bookCoverUrl:
+            'http://books.google.com/books/content?id=hjcQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'hjcQCwAAQBAJ',
+          title: 'Harry Potter e a Câmara Secreta',
+        },
       ],
     },
   },
   {
     _id: '2',
-    title: 'Histórias de Sherlock Holmes',
+    title: 'O Senhor dos Anéis: A Sociedade do Anel',
     bookCoverUrl:
-      'http://books.google.com/books/content?id=t6iWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-    author: 'Arthur Conan Doyle',
+      'http://books.google.com/books/content?id=R7KuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    author: 'J.R.R. Tolkien',
     bestPlaylist: {
       __v: 0,
-      _id: '600f5c71d8bc7800215cba1f',
-      category: 'action_adventure',
-      creator: 'justinbieber',
-      creatorId: 'tkK0yo3vKtRmkH6EO8oCH05BHBc2',
-      description: 'Playlist to read investigation and mystery books',
-      name: 'Investigation & Mystery',
-      owner: 'Adrian Vizzdoom Michalczyk',
+      _id: '60247046316269700c586b68',
+      category: 'fantasy',
+      creator: 'juniorklawa',
+      creatorId: '7rE0ebFRjeQUrXA6jF9ivZJlTAL2',
+      description:
+        'A playlist to read The Hobbit and The Lord Of The Rings: Fellowship of the Ring, Two Towers, and Return of the King to. All music from the LOTR and Hobbit movies.',
+      favNumber: 1,
+      name: 'Lord of the rings Universe',
+      owner: 'victoriastar17',
       playlistCoverSource:
-        'https://i.scdn.co/image/ab67706c0000bebbd8a770c987d7f66f162a2b83',
+        'https://i.scdn.co/image/ab67706c0000bebb28091fbd8675b930c8978632',
       playlistUrl:
-        'https://open.spotify.com/playlist/3Yxt8Z4pnjQ6uFZKEK30al?si=GPXIm2UOR7m_YLqroDF_jg',
+        'https://open.spotify.com/playlist/4iv5ZXzO8ITZ1iYSrIhw94?si=LSks0jHRSi-rOae1aRRfyA&utm_source=copy-link',
       recommendedBooks: [
         {
-          _id: '600f5c71d8bc7800215cba20',
-          author: 'Arthur Conan Doyle',
+          _id: '60247046316269700c586b69',
+          author: 'J.R.R. Tolkien',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=t6iWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 't6iWDwAAQBAJ',
-          title: 'Histórias de Sherlock Holmes',
+            'http://books.google.com/books/content?id=R7KuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'R7KuDwAAQBAJ',
+          title: 'O Senhor dos Anéis: A Sociedade do Anel',
         },
         {
-          _id: '600f5c71d8bc7800215cba21',
-          author: 'Agatha Christie',
+          _id: '60247046316269700c586b6a',
+          author: 'J.R.R. Tolkien',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=jEBdAwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'jEBdAwAAQBAJ',
-          title: 'Assassinato no Expresso Oriente',
+            'http://books.google.com/books/content?id=UbKuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'UbKuDwAAQBAJ',
+          title: 'O Senhor dos Anéis: As duas torres',
         },
         {
-          _id: '600f5c71d8bc7800215cba22',
-          author: 'Agatha Christie',
+          _id: '60247046316269700c586b6b',
+          author: 'J.R.R. Tolkien',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=p5lJCAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'p5lJCAAAQBAJ',
-          title: 'Morte no Nilo',
+            'http://books.google.com/books/content?id=SbKuDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'SbKuDwAAQBAJ',
+          title: 'O Senhor dos Anéis: O retorno do rei',
         },
       ],
     },
   },
   {
     _id: '3',
-    title: 'O Hobbit',
+    title: 'Memórias de Sherlock Holmes',
     bookCoverUrl:
-      'http://books.google.com/books/content?id=2LeZDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-    author: 'J.R.R. Tolkien',
+      'http://books.google.com/books/content?id=dKeWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    author: 'Arthur Conan Doyle',
     bestPlaylist: {
       __v: 0,
-      _id: '60073e963eb91f00213699ed',
-      category: 'fantasy',
+      _id: '6024751c316269700c586b83',
+      category: 'action_adventure',
       creator: 'juniorklawa',
       creatorId: '7rE0ebFRjeQUrXA6jF9ivZJlTAL2',
-      description: 'Hobbit Soundtrack',
-      name: 'The Hobbit Soundtrack',
-      owner: 'Soundtrack&Sons',
+      description: 'Soundtracks for mistery and investigation books',
+      name: 'Investigation Soundtrack',
+      owner: 'jrswak',
       playlistCoverSource:
-        'https://i.scdn.co/image/ab67706c0000bebb54a2b9031e0ab6eb00c89052',
+        'https://i.scdn.co/image/ab67706c0000bebb0626cf9e08bf36040e643738',
       playlistUrl:
-        'https://open.spotify.com/playlist/0GykHg9X8NfxbdTy3sp9h6?si=T84jOUJLSZavlBtEaa_gRg',
+        'https://open.spotify.com/playlist/1QVUBFGoFTKwtUxFhwRF1w?si=oc9S_nTrTmmsn1r3SXGCnQ&utm_source=copy-link',
       recommendedBooks: [
         {
-          _id: '60073e963eb91f00213699ee',
-          author: 'J.R.R. Tolkien',
+          _id: '6024751c316269700c586b84',
+          author: 'Arthur Conan Doyle',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=2LeZDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: '2LeZDwAAQBAJ',
-          title: 'O Hobbit',
+            'http://books.google.com/books/content?id=gL3oDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'gL3oDwAAQBAJ',
+          title: 'Sherlock Holmes - Um estudo em vermelho',
         },
         {
-          _id: '60073e963eb91f00213699ef',
-          author: 'J.R.R. Tolkien',
+          _id: '6024751c316269700c586b85',
+          author: 'Arthur Conan Doyle',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=OlCHcjX0RT4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: 'OlCHcjX0RT4C',
-          title: 'The Hobbit',
+            'http://books.google.com/books/content?id=dKeWDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'dKeWDwAAQBAJ',
+          title: 'Memórias de Sherlock Holmes',
+        },
+        {
+          _id: '6024751c316269700c586b86',
+          author: 'Agatha Christie',
+          bookCoverUrl:
+            'http://books.google.com/books/content?id=BUw2t2B9v28C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'BUw2t2B9v28C',
+          title: 'Assassinato na Casa do Pastor',
         },
       ],
     },
   },
   {
     _id: '4',
-    title: 'O Mágico de Oz',
+    title: 'Alice no País das Maravilhas',
     bookCoverUrl:
-      'http://books.google.com/books/content?id=59IJ34ms1HQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-    author: 'L. Frank Baum',
+      'http://books.google.com/books/content?id=zsngDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    author: 'Lewis Carroll',
     bestPlaylist: {
       __v: 0,
-      _id: '6007461b3eb91f00213699f7',
+      _id: '602475ba316269700c586b87',
       category: 'action_adventure',
       creator: 'juniorklawa',
       creatorId: '7rE0ebFRjeQUrXA6jF9ivZJlTAL2',
-      description:
-        'Just a collection of tracks for reading and dreaming. Mostly music from movies, series and video games.',
-      name: 'Adventure - Fantasy Book Reading',
-      owner: 'puddo',
+      description: 'The perfect score to accompany your literary quest.',
+      name: 'Reading Adventure',
+      owner: 'Spotify',
       playlistCoverSource:
-        'https://i.scdn.co/image/ab67706c0000bebbc5dbdc861e2d9b965acde4eb',
+        'https://i.scdn.co/image/ab67706f000000039c95b40a47895e3ec02e7c71',
       playlistUrl:
-        'https://open.spotify.com/playlist/4YGEVpdvWQv7qimf6YnKJR?si=xWw4KKTIRPuBc61kGfzYCQ',
+        'https://open.spotify.com/playlist/37i9dQZF1DWUWUfWSLE7dn?si=Enk1OupVRtCR6cFzRDJgaw&utm_source=copy-link',
       recommendedBooks: [
         {
-          _id: '6007461b3eb91f00213699f8',
+          _id: '602475ba316269700c586b88',
           author: 'L. Frank Baum',
           bookCoverUrl:
-            'http://books.google.com/books/content?id=59IJ34ms1HQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-          bookId: '59IJ34ms1HQC',
+            'http://books.google.com/books/content?id=ZtJtDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'ZtJtDgAAQBAJ',
           title: 'O Mágico de Oz',
         },
         {
-          _id: '6007461b3eb91f00213699f9',
+          _id: '602475ba316269700c586b89',
           author: 'J.R.R. Tolkien',
           bookCoverUrl:
             'http://books.google.com/books/content?id=2LeZDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
           bookId: '2LeZDwAAQBAJ',
           title: 'O Hobbit',
+        },
+        {
+          _id: '602475ba316269700c586b8a',
+          author: 'Lewis Carroll',
+          bookCoverUrl:
+            'http://books.google.com/books/content?id=zsngDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+          bookId: 'zsngDwAAQBAJ',
+          title: 'Alice no País das Maravilhas',
         },
       ],
     },

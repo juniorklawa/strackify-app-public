@@ -15,6 +15,7 @@ export default {
     exit: 'Sign out',
     warning: 'Warning!',
     error: 'Error!',
+    load_more: 'Load more',
   },
   categories: {
     fantasy: 'Fantasy',

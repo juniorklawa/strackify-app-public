@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { ActivityIndicator, Animated, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { FlatGrid } from 'react-native-super-grid';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useCollapsibleHeader } from 'react-navigation-collapsible';
@@ -15,6 +16,8 @@ import {
   EmptyListContainer,
   EmptyListText,
   GoBackButton,
+  LoadMoreButtonText,
+  LoadMoreContainer,
 } from './styles';
 
 interface IRoute {
@@ -53,6 +56,8 @@ const CategoryPage = ({ route }: IRoute) => {
 
   const [currentCategory, setCategory] = useState<IPlayList[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const { category } = route.params;
 
@@ -64,7 +69,9 @@ const CategoryPage = ({ route }: IRoute) => {
     async function fetchData() {
       try {
         setIsLoading(true);
-        const response = await api.get(`playlists/category/${category}`);
+        const response = await api.get(
+          `playlists/category/${category}/${currentPage}`,
+        );
         setCategory(response.data);
       } catch (err) {
         console.error(err);
@@ -74,7 +81,22 @@ const CategoryPage = ({ route }: IRoute) => {
     }
 
     fetchData();
-  }, [category]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const loadMore = useCallback(async () => {
+    try {
+      setCurrentPage((prevState) => prevState + 1);
+      setIsLoadingMore(true);
+      const response = await api.get(
+        `playlists/category/${category}/${currentPage + 1}`,
+      );
+      setCategory((prevState) => [...prevState, ...response.data]);
+    } catch (err) {
+    } finally {
+      setIsLoadingMore(false);
+    }
+  }, [category, currentPage]);
 
   if (isLoading) {
     return <CategorySkeleton />;
@@ -83,9 +105,8 @@ const CategoryPage = ({ route }: IRoute) => {
   return (
     <>
       <Animated.ScrollView
-        showsVerticalScrollIndicator={false}
         onScroll={onScroll}
-        contentContainerStyle={{ paddingTop: containerPaddingTop }}
+        contentContainerStyle={{ paddingTop: containerPaddingTop, flex: 1 }}
         scrollIndicatorInsets={{ top: scrollIndicatorInsetTop }}>
         <Container>
           {currentCategory.length ? (
@@ -96,6 +117,24 @@ const CategoryPage = ({ route }: IRoute) => {
               style={styles.gridView}
               spacing={10}
               renderItem={renderCategoryItem}
+              onEndReachedThreshold={0.01}
+              ListFooterComponent={
+                <>
+                  {currentCategory?.length >= 20 && (
+                    <LoadMoreContainer>
+                      {isLoadingMore ? (
+                        <ActivityIndicator size="large" color="#43cfc3" />
+                      ) : (
+                        <TouchableOpacity onPress={loadMore}>
+                          <LoadMoreButtonText>
+                            {translate('utils.load_more')}
+                          </LoadMoreButtonText>
+                        </TouchableOpacity>
+                      )}
+                    </LoadMoreContainer>
+                  )}
+                </>
+              }
             />
           ) : (
             <EmptyListContainer>

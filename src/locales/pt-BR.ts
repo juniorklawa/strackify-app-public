@@ -14,6 +14,7 @@ export default {
     exit: 'Sair',
     warning: 'Atenção!',
     error: 'Erro!',
+    load_more: 'Carregar mais',
   },
   categories: {
     fantasy: 'Fantasia',
@@ -150,10 +151,8 @@ export default {
   },
   spotify_modal: {
     welcome: 'Bem-vindo!',
-    explanation: `O Strackify precisa que você se logue com o Spotify para
-    reproduzir as músicas, mas fique tranquilo, quando precisarmos
-    dessa autorização vamos exibir uma imagem parecida com a mostrada
-    a cima.`,
+    explanation:
+      'O Strackify precisa que você se logue com o Spotify para reproduzir as músicas, mas fique tranquilo, quando precisarmos dessa autorização vamos exibir uma imagem parecida com a mostrada a cima.',
     good_reading: 'Boa leitura.',
     understand: 'Entendi',
   },

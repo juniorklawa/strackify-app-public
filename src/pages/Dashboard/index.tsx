@@ -14,8 +14,8 @@ import TrackBar from '../../components/TrackBar';
 import { useAuth } from '../../hooks/useAuth';
 import { translate } from '../../locales';
 import { ICategory } from '../../models/ICategory';
+import { IPlayList } from '../../models/IPlaylist';
 import api from '../../services/api';
-import featuredBooks from '../../utils/featuredBooks';
 import getGreeting from '../../utils/getGreeting';
 import { BookScrollView } from '../Playlist/styles';
 import {
@@ -27,13 +27,21 @@ import {
   GreetText,
   InfoContainer,
   NewPlaylistButton,
-  UserNameText,
+  UserNameText
 } from './styles';
+
+interface IFeaturedBook {
+  title: string;
+  bookCoverUrl: string;
+  author: string;
+  bestPlaylist: IPlayList;
+}
 
 const Dashboard: React.FC = () => {
   const { user } = useAuth();
 
   const [categories, setCategories] = useState<ICategory[]>([]);
+  const [featuredBooks, setFeaturedBooks] = useState<IFeaturedBook[]>([]);
   const navigation = useNavigation();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSpotifyAuthModalVisible, setIsSpotifyAuthModalVisible] = useState<
@@ -64,6 +72,7 @@ const Dashboard: React.FC = () => {
         }
 
         setCategories(data.categories);
+        setFeaturedBooks(data.featuredBooks);
       } catch (err) {
         console.error(err);
       } finally {
@@ -109,7 +118,7 @@ const Dashboard: React.FC = () => {
             <GreetContainer>
               <GreetText>{getGreeting()},</GreetText>
               <UserNameText>
-                @{user ? user?.username : `${translate('dashboard.user')}`}
+                {user ? `@${user?.username}` : `${translate('dashboard.user')}`}
               </UserNameText>
             </GreetContainer>
           </InfoContainer>
@@ -128,7 +137,7 @@ const Dashboard: React.FC = () => {
           <View style={styles.spacing} />
 
           <BookScrollView horizontal={true}>
-            {featuredBooks.map((book: any) => (
+            {featuredBooks?.map((book: any) => (
               <FeaturedBook key={book.title} book={book} />
             ))}
           </BookScrollView>
